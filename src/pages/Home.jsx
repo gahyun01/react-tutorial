@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './Home.css';
+import HomeCard from '../components/HomeCard';
 
 
 const Home = () => {
@@ -21,9 +22,10 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
-      <h1>{books.map((book, index) => <img className="img" key={book.id} src={book.coverImg} alt={book.name} />)}
-      </h1>
+    <div className='homeContainer'>
+      {books.map((book, index) =>
+        <HomeCard key={index} book={book} />
+      )}
     </div>
   )
 }
